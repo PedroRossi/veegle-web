@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Paper, Grid, Input, TextField, Button, IconButton, Icon, Menu, MenuItem } from '@material-ui/core';
 import { withRouter } from 'react-router-dom';
-import queryString from 'query-string';
 import Logo from '../../components/Logo';
 import './index.css';
 
