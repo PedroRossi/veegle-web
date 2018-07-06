@@ -9,23 +9,21 @@ import './index.css';
 
 class Result extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            loading: true,
-            selectedIndex: 0,
-            general: '',
-            title: '',
-            ingredients: '',
-            steps: '',
-            results: []
-        }
+    state = {
+        loading: true,
+        selectedIndex: 0,
+        general: '',
+        title: '',
+        ingredients: '',
+        steps: '',
+        results: []
     }
 
     async componentDidMount() {
         const search = this.props.location.search.substring(1);
         const query = JSON.parse(queryString.parse(search).query);
-        let results = await fetch('http://localhost:5000/search', {
+        const url = process.env.NODE_ENV === 'production' ? 'https://veegle-server.herokuapp.com/' : 'http://localhost:5000'
+        let results = await fetch(`${url}/search`, {
             method: 'POST',
             body: JSON.stringify(query),
             headers: new Headers({'Content-Type': 'application/json'})
@@ -108,6 +106,9 @@ class Result extends Component {
                                 <h3>
                                     {r.name}
                                 </h3>
+                                <p>
+                                    {r.ingredients}
+                                </p>
                                 <p>
                                     {r.steps}
                                 </p>
