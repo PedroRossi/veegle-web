@@ -1,9 +1,17 @@
 .result-wrapper {
-    margin-top: 20px;
-    margin-left: 10px;
-    margin-left: 10px;
+    padding: 20px 10px;
+    width: 90%;
 }
 
 .result-results {
-    margin-left: 30px;
+    margin: 0px 30px;
+}
+
+.result-search-box {
+    width: 100%;
+}
+
+.result-search-box .search-input {
+    width: 95%;
+    margin: 0px 10px;
 }
