@@ -22,7 +22,7 @@ class Result extends Component {
     async componentDidMount() {
         const search = this.props.location.search.substring(1);
         const query = JSON.parse(queryString.parse(search).query);
-        const url = process.env.NODE_ENV === 'production' ? 'https://veegle-server.herokuapp.com/' : 'http://localhost:5000'
+        const url = true ? 'https://veegle-server.herokuapp.com' : 'http://localhost:5000'
         let results = await fetch(`${url}/search`, {
             method: 'POST',
             body: JSON.stringify(query),
